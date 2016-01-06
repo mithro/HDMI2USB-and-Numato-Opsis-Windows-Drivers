@@ -20,7 +20,7 @@
 ; Shared starting stuff
 !include "inf-driver-installer-common-config.nsh"
 
-OutFile "OSVR-HMD-Inf-Driver-${VERSION_TAG}.exe"
+OutFile "HDMI2USB-and-Numato-Opsis-Drivers-${VERSION_TAG}.exe"
 
 ShowInstDetails hide
 AutoCloseWindow true

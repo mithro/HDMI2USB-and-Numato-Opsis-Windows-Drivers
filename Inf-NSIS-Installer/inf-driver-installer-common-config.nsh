@@ -19,8 +19,8 @@
 ; limitations under the License.
 
 !define VERSION_TAG "v${DRIVER_VER}"
-!define PRODUCT_NAME "OSVR HMD CDC and Display Driver"
-!define PRODUCT_PUBLISHER "Sensics, Inc."
+!define PRODUCT_NAME "HDMI2USB and Numato Opsis Drivers"
+!define PRODUCT_PUBLISHER "TimVideos.us & Numato Lab"
 SetCompressor lzma
 
 !include "x64.nsh"

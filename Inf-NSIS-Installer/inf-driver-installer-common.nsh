@@ -31,14 +31,6 @@ ManifestSupportedOS WinVista Win7 Win8 {8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}
 
 Var DPINST_ARGS_RUNTIME
 
-!define CDC_DRIVER_NAME osvr_cdc
-!define DISPLAY_DRIVER_NAME osvr_hdk_display
-!define HID_DRIVER_NAME osvr_hdk_hid
-
-!define ATMEL_USB_DFU_DIR atmel_usb_dfu
-!define ATMEL_USB_DFU_SRC ${REPO_ROOT}\vendor\${ATMEL_USB_DFU_DIR}
-
-
 Section -CDC_INF
   Var /GLOBAL DPINST_RET
   !define INF_DIR $PLUGINSDIR\cdc
@@ -48,50 +40,28 @@ Section -CDC_INF
   DetailPrint "Temporarily extracting driver infs and cat along with installation tool."
 
   ${If} ${AtLeastWin10}
-    DetailPrint "Windows 10 does not need USB-CDC driver installed."
+    DetailPrint "Windows 10 does not need HDMI2USB - Opsis Board - Control Port driver installed."
     SetDetailsView show
     SetAutoClose false
   ${Else}
-  ; CDC driver inf + signed catalog file
-    DetailPrint "USB-CDC driver:"
-    File "${INF_SRC_DIR}\${CDC_DRIVER_NAME}.inf"
-    File "${INF_SRC_DIR}\${CDC_DRIVER_NAME}.cat"
+    DetailPrint "HDMI2USB - Opsis Board - Control Port driver:"
+    File "${INF_SRC_DIR}\h2u_opsis_con.inf"
+    File "${INF_SRC_DIR}\h2u_opsis_con.cat"
   ${EndIf}
 
-  ; Nearly-dummy display driver inf + signed catalog file
-  DetailPrint "Display interface driver:"
-  File "${INF_SRC_DIR}\${DISPLAY_DRIVER_NAME}.inf"
-  File "${INF_SRC_DIR}\${DISPLAY_DRIVER_NAME}.cat"
+  DetailPrint "HDMI2USB - Opsis Board - Capture Interface driver:"
+  File "${INF_SRC_DIR}\h2u_opsis_cap.inf"
+  File "${INF_SRC_DIR}\h2u_opsis_cap.cat"
 
-  ; Nearly-dummy HID driver inf + signed catalog file
-  DetailPrint "Display interface driver:"
-  File "${INF_SRC_DIR}\${HID_DRIVER_NAME}.inf"
-  File "${INF_SRC_DIR}\${HID_DRIVER_NAME}.cat"
-
-  ; Nearly-dummy IR camera driver inf + signed catalog file
-  DetailPrint "IR camera driver:"
-  File "${INF_SRC_DIR}\osvr_hdk_ircam.inf"
-  File "${INF_SRC_DIR}\osvr_hdk_ircam.cat"
-
-  ; Atmel USB DFU driver
-  DetailPrint "Atmel DFU firmware upgrade interface driver:"
-  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}"
-  File "${ATMEL_USB_DFU_SRC}\README.txt"
-  File "${ATMEL_USB_DFU_SRC}\COPYING_GPL.txt"
-  File "${ATMEL_USB_DFU_SRC}\atmel_usb_dfu.inf"
-  File "${ATMEL_USB_DFU_SRC}\atmel_usb_dfu.cat"
-
-  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\x86"
-  File "${ATMEL_USB_DFU_SRC}\x86\libusb0.sys"
-  File "${ATMEL_USB_DFU_SRC}\x86\libusb0_x86.dll"
-
-  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\amd64"
-  File "${ATMEL_USB_DFU_SRC}\amd64\libusb0.sys"
-  File "${ATMEL_USB_DFU_SRC}\amd64\libusb0.dll"
-
-  SetOutPath "${INF_DIR}\${ATMEL_USB_DFU_DIR}\ia64"
-  File "${ATMEL_USB_DFU_SRC}\ia64\libusb0.sys"
-  File "${ATMEL_USB_DFU_SRC}\ia64\libusb0.dll"
+  ${If} ${AtLeastWin10}
+    DetailPrint "Windows 10 does not need TOFE Low Speed IO Board driver installed."
+    SetDetailsView show
+    SetAutoClose false
+  ${Else}
+    DetailPrint "TOFE Low Speed IO Board driver:"
+    File "${INF_SRC_DIR}\tofe_lowspeedio.inf"
+    File "${INF_SRC_DIR}\tofe_lowspeedio.cat"
+  ${EndIf}
 
   SetOutPath "${INF_DIR}"
 
