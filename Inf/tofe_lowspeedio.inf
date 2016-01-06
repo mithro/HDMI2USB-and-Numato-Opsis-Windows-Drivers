@@ -38,7 +38,7 @@ DriverPackageType=PlugAndPlay
 DriverPackageDisplayName = %PackageDisplayName%
 
 [Manufacturer]
-%Manufacturer% = OSVRMfg, NTx86, NTamd64, NTia64, NTarm
+%Manufacturer% = TOFE_LISOfg, NTx86, NTamd64, NTia64, NTarm
 
 [DestinationDirs]
 DefaultDestDir=12
@@ -47,31 +47,36 @@ DefaultDestDir=12
 ; "Models" sections
 
 ; This driver not needed on Windows 10 - in-box CDC driver/inf (usbser.inf) should work fine
-[OSVRMfg.NT.10]
+[TOFE_LISOfg.NT.10]
 
-[OSVRMfg.NTx86.10]
+[TOFE_LISOfg.NTx86.10]
 
-[OSVRMfg.NTia64.10]
+[TOFE_LISOfg.NTia64.10]
 
-[OSVRMfg.NTamd64.10]
+[TOFE_LISOfg.NTamd64.10]
 
-[OSVRMfg.NTarm.10]
+[TOFE_LISOfg.NTarm.10]
 
 ; Windows 8.1 and below, all architectures
-[OSVRMfg.NT]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&REV_0100&MI_00
+[TOFE_LISOfg.NT]
+%TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
+%TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[OSVRMfg.NTx86]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&REV_0100&MI_00
+[TOFE_LISOfg.NTx86]
+%TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
+%TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[OSVRMfg.NTia64]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&REV_0100&MI_00
+[TOFE_LISOfg.NTia64]
+%TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
+%TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[OSVRMfg.NTamd64]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&REV_0100&MI_00
+[TOFE_LISOfg.NTamd64]
+%TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
+%TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[OSVRMfg.NTarm]
-%OSVR_HMD_CDC%=OSVR_HMD_CDC, USB\VID_1532&PID_0B00&REV_0100&MI_00
+[TOFE_LISOfg.NTarm]
+%TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
+%TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; "DDInstall" and related sections for CDC control port
@@ -80,18 +85,18 @@ DefaultDestDir=12
 ; and https://msdn.microsoft.com/en-us/library/ff542605(v=vs.85).aspx
 ;
 ; Some additions required.
-[OSVR_HMD_CDC.NT]
+[TOFE_LSIO.NT]
 Include=mdmcpq.inf,msports.inf
 ;Needs=SerialEnumerator.NT ; serenum - appears to not be needed
 CopyFiles=FakeModemCopyFileSection
 AddReg=ComPort.NT.AddReg ; for MsPorts.dll,SerialPortPropPageProvider
 
-[OSVR_HMD_CDC.NT.Services]
+[TOFE_LSIO.NT.Services]
 Include=mdmcpq.inf
 AddService=usbser, %ServiceFlags%, LowerFilter_Service_Inst
 ;Needs=SerialEnumerator.NT.Services ; serenum, add msports.inf to include
 
-[OSVR_HMD_CDC.NT.HW]
+[TOFE_LSIO.NT.HW]
 Include=mdmcpq.inf
 ;Needs=ComPort.NT.HW ; serenum, add msports.inf to include
 AddReg=LowerFilterAddReg
@@ -100,10 +105,12 @@ AddReg=LowerFilterAddReg
 ; Strings (and constants)
 
 [Strings]
-Manufacturer = "Sensics, Inc."
-PackageDisplayName = "OSVR HMD Communication Port"
-OSVR_HMD_CDC = "OSVR HMD Communication Device"
-FILENAME = "osvr_cdc"
+Manufacturer = "TimVideos.us & Numato Lab"
+PackageDisplayName = "TOFE Low Speed IO Board Driver"
+TOFE_LSIO="TOFE Low Speed IO Board"
+TOFE_LSIO_F="TOFE Low Speed IO Board - FPGA UART"
+TOFE_LISO_P="TOFE Low Speed IO Board - PIC Command Line"
+FILENAME = "tofe_lowspeedio"
 
 ; non-localizable
 ; set as the default function driver for this device
