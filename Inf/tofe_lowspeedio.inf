@@ -38,7 +38,7 @@ DriverPackageType=PlugAndPlay
 DriverPackageDisplayName = %PackageDisplayName%
 
 [Manufacturer]
-%Manufacturer% = TOFE_LISOfg, NTx86, NTamd64, NTia64, NTarm
+%Manufacturer% = NUMATO_TVfg, NTx86, NTamd64, NTia64, NTarm
 
 [DestinationDirs]
 DefaultDestDir=12
@@ -47,34 +47,34 @@ DefaultDestDir=12
 ; "Models" sections
 
 ; This driver not needed on Windows 10 - in-box CDC driver/inf (usbser.inf) should work fine
-[TOFE_LISOfg.NT.10]
+[NUMATO_TVfg.NT.10]
 
-[TOFE_LISOfg.NTx86.10]
+[NUMATO_TVfg.NTx86.10]
 
-[TOFE_LISOfg.NTia64.10]
+[NUMATO_TVfg.NTia64.10]
 
-[TOFE_LISOfg.NTamd64.10]
+[NUMATO_TVfg.NTamd64.10]
 
-[TOFE_LISOfg.NTarm.10]
+[NUMATO_TVfg.NTarm.10]
 
 ; Windows 8.1 and below, all architectures
-[TOFE_LISOfg.NT]
+[NUMATO_TVfg.NT]
 %TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
 %TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[TOFE_LISOfg.NTx86]
+[NUMATO_TVfg.NTx86]
 %TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
 %TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[TOFE_LISOfg.NTia64]
+[NUMATO_TVfg.NTia64]
 %TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
 %TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[TOFE_LISOfg.NTamd64]
+[NUMATO_TVfg.NTamd64]
 %TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
 %TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
-[TOFE_LISOfg.NTarm]
+[NUMATO_TVfg.NTarm]
 %TOFE_LSIO_F%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_00
 %TOFE_LSIO_P%=TOFE_LSIO,USB\VID_2A19&PID_5445&MI_02
 
