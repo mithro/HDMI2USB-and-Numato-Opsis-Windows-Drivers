@@ -96,5 +96,5 @@ Needs=USBVideo.NT.Services
 [Strings]
 Manufacturer = "TimVideos.us & Numato Lab"
 PackageDisplayName = "HDMI2USB - Opsis Board - Capture Drivers"
-FILENAME = "hdmi2usb_opsis"
+FILENAME = "h2u_opsis_cap"
 HDMI2USB_OPSIS = "HDMI2USB - Opsis Board - Capture Interface"
