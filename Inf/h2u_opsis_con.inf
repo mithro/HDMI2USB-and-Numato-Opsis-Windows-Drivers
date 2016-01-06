@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; OSVR HMD controller CDC serial port inf
+; HDMI2USB - Opsis Board - Control Port Inf
 ;
 ; Part of OSVR
 ; Authored by Sensics, Inc. <http://sensics.com/osvr>
@@ -59,7 +59,7 @@ DefaultDestDir=12
 
 ; Windows 8.1 and below, all architectures
 [NUMATO_TVfg.NT]
-%H2U_OPSIS_CON%=H2U_OPSIS_CON,USB\VID_2A19&PID_5442&MI_02
+%H2U_OPSIS_CON%=H2U_OPSIS_CON,USB\VID_2A19&PID_5443&MI_02
 
 [NUMATO_TVfg.NTx86]
 %H2U_OPSIS_CON%=H2U_OPSIS_CON,USB\VID_2A19&PID_5442&MI_02
@@ -102,7 +102,7 @@ AddReg=LowerFilterAddReg
 [Strings]
 Manufacturer = "TimVideos.us & Numato Lab"
 PackageDisplayName = "HDMI2USB - Opsis Board - Control Driver"
-H2U_OPSIS_CON="HDMI2USB - Opsis Board - Control Port"
+H2U_OPSIS_CON = "HDMI2USB - Opsis Board - Control Port"
 FILENAME = "h2u_opsis_con"
 
 ; non-localizable

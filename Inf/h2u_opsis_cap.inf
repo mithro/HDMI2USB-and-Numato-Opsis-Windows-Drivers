@@ -42,26 +42,26 @@ ExcludeFromSelect=* ; Only auto-matching-install is fine, just a "naming" driver
 
 ; all architectures
 [NUMATO_TVfg.NT]
-%HDMI2USB_OPSIS%=HDMI2USB_OPSIS,USB\VID_2A19&PID_5441&MI_00
+%H2U_OPSIS_CAP%=H2U_OPSIS_CAP,USB\VID_2A19&PID_5441&MI_00
 
 [NUMATO_TVfg.NTx86]
-%HDMI2USB_OPSIS%=HDMI2USB_OPSIS,USB\VID_2A19&PID_5441&MI_00
+%H2U_OPSIS_CAP%=H2U_OPSIS_CAP,USB\VID_2A19&PID_5441&MI_00
 
 [NUMATO_TVfg.NTia64]
-%HDMI2USB_OPSIS%=HDMI2USB_OPSIS,USB\VID_2A19&PID_5441&MI_00
+%H2U_OPSIS_CAP%=H2U_OPSIS_CAP,USB\VID_2A19&PID_5441&MI_00
 
 [NUMATO_TVfg.NTamd64]
-%HDMI2USB_OPSIS%=HDMI2USB_OPSIS,USB\VID_2A19&PID_5441&MI_00
+%H2U_OPSIS_CAP%=H2U_OPSIS_CAP,USB\VID_2A19&PID_5441&MI_00
 
 [NUMATO_TVfg.NTarm]
-%HDMI2USB_OPSIS%=HDMI2USB_OPSIS,USB\VID_2A19&PID_5441&MI_00
+%H2U_OPSIS_CAP%=H2U_OPSIS_CAP,USB\VID_2A19&PID_5441&MI_00
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; "DDInstall" and related sections for the IR camera
 ; Sadly, because "nested Needs directives" don't work,
 ; we must repeat more of this section from usbvideo.inf
 ; than I'd prefer.
-[HDMI2USB_OPSIS.NT]
+[H2U_OPSIS_CAP.NT]
 ; Just delegate as the standard driver does
 Include=usbvideo.inf, ks.inf, kscaptur.inf
 Needs=KS.Registration, KSCAPTUR.Registration.NT
@@ -69,24 +69,24 @@ CopyFiles=USBVideo.CopyList
 AddReg=USBVideo.AddReg, TopologyNodeRegistration, DVCR.Plugins
 ; Skipping AddProperty since that just says "Generic Driver Installed"
 
-[HDMI2USB_OPSIS.NT.HW]
+[H2U_OPSIS_CAP.NT.HW]
 ; Just delegate as the standard driver does
 Include=machine.inf
 Needs=PciD3ColdSupported
 
-[HDMI2USB_OPSIS.NT.CoInstallers]
+[H2U_OPSIS_CAP.NT.CoInstallers]
 Include=usbvideo.inf
 Needs=USBVideo.NT.CoInstallers
 
-[HDMI2USB_OPSIS.NT.Interfaces]
+[H2U_OPSIS_CAP.NT.Interfaces]
 Include=usbvideo.inf
 Needs=USBVideo.NT.Interfaces
 
-[HDMI2USB_OPSIS.Interfaces]
+[H2U_OPSIS_CAP.Interfaces]
 Include=usbvideo.inf
 Needs=USBVideo.Interfaces
 
-[HDMI2USB_OPSIS.NT.Services]
+[H2U_OPSIS_CAP.NT.Services]
 Include=usbvideo.inf
 Needs=USBVideo.NT.Services
 
@@ -95,6 +95,6 @@ Needs=USBVideo.NT.Services
 
 [Strings]
 Manufacturer = "TimVideos.us & Numato Lab"
-PackageDisplayName = "HDMI2USB - Opsis Board - Capture Drivers"
+PackageDisplayName = "HDMI2USB - Opsis Board - Capture Driver"
+H2U_OPSIS_CAP = "HDMI2USB - Opsis Board - Capture Interface"
 FILENAME = "h2u_opsis_cap"
-HDMI2USB_OPSIS = "HDMI2USB - Opsis Board - Capture Interface"
