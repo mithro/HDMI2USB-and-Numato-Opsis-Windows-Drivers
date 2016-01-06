@@ -109,7 +109,7 @@ Manufacturer = "TimVideos.us & Numato Lab"
 PackageDisplayName = "TOFE Low Speed IO Board Driver"
 TOFE_LSIO="TOFE Low Speed IO Board"
 TOFE_LSIO_F="TOFE Low Speed IO Board - FPGA UART"
-TOFE_LISO_P="TOFE Low Speed IO Board - PIC Command Line"
+TOFE_LSIO_P="TOFE Low Speed IO Board - PIC Command Line"
 FILENAME = "tofe_lowspeedio"
 
 ; non-localizable
